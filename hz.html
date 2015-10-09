@@ -40,8 +40,26 @@
 	// lastName получит значение, соответствующее текущей дате:
 	let [firstName2, lastName2=defaultLastName()] = ["Vasia"];
 
-	alert(firstName2); // Вася
-	alert(lastName2);  // 1436...-visitor
+	//alert(firstName2); // Вася
+	//alert(lastName2);  // 1436...-visitor
+	//------------------------------------
+	let str = {
+		f1: "Igor",
+		f2: "I",
+		f3: "Hate",
+		f4: "You"
+	};
+	
+	let {f1, f2, f3, f4,ends=defaultLastName()} = str;
+	//alert(f1 + " , " + f2 + " " + f3 + " " + f4+ "!!!"+ "\n" + ends);
+	//------------------------------
+	
+	function showMenu(title = "Whithout header", str1 = "whithout str", str2 = "whithour str2") {
+	  alert(`${title} - ${str1} ${str2}!!!`);
+	}
+
+	showMenu("Igor", "Goatskins", "Dull"); 
+	showMenu("I", "HATE", "YOU");
   </script>
 </body>
 
