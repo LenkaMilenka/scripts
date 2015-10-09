@@ -1,15 +1,47 @@
+
 <!DOCTYPE html>
 <html>
 <script src="https://js.cx/babel-core/browser.min.js"></script>
 <body>
   <script type="text/babel">
     'use strict';
-    'use strict';
-    var b = 5;
-	alert(b);
-    alert(a); // ошибка, нет такой переменной
-    
-    let a = 5;
+	//-----------All alerts commented
+	if (true) {
+	  let apples = 10;
+	 // alert(apples); // 10 (внутри блока)
+	}
+	try{
+	//alert(apples); // ошибка!
+	}catch(e){
+	  alert(e.message);
+	}
+	//-----------------------------
+
+	// первый и второй элементы не нужны
+	let [, , title] = "Ulliy Cazar Emperor Rim".split(" ");
+
+	//alert(title); // Emperor	
+	//-----------------------------
+	
+	let [first, last, ...rest] = "Ulliy Cazar Emperor Rim".split(" ");
+	//alert(rest);
+	//-----------------------------
+	
+	// значения по умолчанию
+	let [firstName="Guest", lastName="Anonym"] = [];
+
+	//alert(firstName); // Guest
+	//-----------------------------
+	
+	function defaultLastName() {
+	  return Date.now() + '-visitor';
+	}
+
+	// lastName получит значение, соответствующее текущей дате:
+	let [firstName2, lastName2=defaultLastName()] = ["Vasia"];
+
+	alert(firstName2); // Вася
+	alert(lastName2);  // 1436...-visitor
   </script>
 </body>
 
