@@ -55,10 +55,53 @@
 	//------------------------------
 	
 	function showMenu(title = "Whithout header", str1 = "whithout str", str2 = "whithour str2") {
-	  alert(`${title} - ${str1} ${str2}!!!!`);
+	 // alert(`${title} - ${str1} ${str2}!!!!`);
 	}
 	showMenu("Igor", "Goatskins", "Dull"); 
 	showMenu("I", "HATE", "YOU");
+	//----------------------------
+	
+	let sum = (a,b) => a + b;
+	//alert( sum(111, 4) ); 
+	//--------------------------
+	
+	let mul = (a, b, c)=>a*b*c;
+	//alert(mul(1,2,3) + " = 1* 2 * 3");
+	//----------------------
+	
+	let mydr = (a,b,c) => a*b+c-a/b;
+	//alert(mydr(10, 2, 7) + " = 10 * 2 + 7 - 10 / 2");
+	//------------------------------
+	
+	let getTime = () => `${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`;
+
+	//alert( getTime() ); // time now
+	//---------------------------
+	
+	
+	/*let fit = {
+	  title: "10IT-2",
+	  names: ["Lena", "Sveta", "Mudaki"],
+
+	  showList: function() {
+		this.names.forEach(
+		  (student) => alert(`${this.title} : ${student}`)
+		)
+	  }
+	}
+
+	fit.showList();*/
+	//--------------------
+	
+	//alert(`My
+	//multiline
+	//str`);
+	//---------------------
+	
+	// Правильно
+alert( String.fromCodePoint(119987) ); // 𝒳
+// Неверно!
+alert( String.fromCharCode(119987) ); // 풳
   </script>
 </body>
 
