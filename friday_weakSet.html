@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<script src="https://js.cx/babel-core/browser.min.js"></script>
+<body>
+  <script type="text/babel">
+		'use strict';
+		//Alerts commented
+
+		// current active users
+		let activeUsers = [
+		  {name: "Pasha"},
+		  {name: "Ivan"},
+		  {name: "Olga"}
+		];
+
+		// more information about them,
+		// that don't excluded at the object,
+		// and saved singly
+		let weakMap = new WeakMap();
+
+		weakMap[activeUsers[0]] = 1;
+		weakMap[activeUsers[1]] = 2;
+		weakMap[activeUsers[2]] = 3;
+
+		alert( weakMap[activeUsers[0]] ); // 1
+
+		activeUsers.splice(0, 1); // Pasha no active user
+
+		// weakMap have 2 elements
+
+		activeUsers.splice(0, 1); // Ivan no active user
+
+		// weakMap have 1 element
+		
+	
+  </script>
+</body>
+
+</html>
