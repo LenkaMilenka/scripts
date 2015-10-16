@@ -62,11 +62,27 @@
 	//--------------------------------------------
 	
 	let map = new Map();
-	map.set(1,"IOOO");
-	map.set("1","Exadel");
-	map.set(true, "company");
+	map
+	.set(1,"IOOO")
+	.set("1","Exadel")
+	.set(true, "company");
 	
-	alert(map.size + "!\n" +  map.get(1) + " " + map.get("1") + " " + map.get(true) + "!");
+	//alert(map.size + "!\n" +  map.get(1) + " " + map.get("1") + " " + map.get(true) + "!");
+	
+	//cycle for for a value
+	for(let com of map.values()){
+		//alert(com);
+	}
+	
+	//cycle for for an entry 
+	for(let com of map){
+		//alert(com);
+	}
+	//forEach for an entry (Warning ` != ')
+	map.forEach((value, key, map) =>{
+	alert(`${key}: ${value}`);
+	});
+	
 	
 	
   </script>
