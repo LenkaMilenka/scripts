@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<script src="https://js.cx/babel-core/browser.min.js"></script>
+<body>
+  <script type="text/babel">
+      'use strict';
+	  let user = {
+	  name: "Vasia",
+	  age: 30,
+	  [Symbol.for("isAdmin")]: true
+	};
+
+	// in cycle for..in wasn't symbol
+	alert( Object.keys(user) ); // name, age
+
+	// Access to the property through the global symbol -  working
+	alert( user[Symbol.for("isAdmin")] ); //true
+  </script>
+</body>
+
+</html>
