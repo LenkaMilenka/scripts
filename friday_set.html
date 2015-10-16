@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<script src="https://js.cx/babel-core/browser.min.js"></script>
+<body>
+  <script type="text/babel">
+      'use strict';
+	  //Alerts commented
+	  
+		let set = new Set();
+
+		let vasya = {name: "Pasha"};
+		let petya = {name: "Ivan"};
+		let dasha = {name: "Olga"};
+
+		// visit, some peoples came many times
+		set.add(vasya);
+		set.add(petya);
+		set.add(dasha);
+		set.add(vasya);
+		set.add(petya);
+
+		// set stores only  unique values
+		alert( set.size ); // 3
+
+		set.forEach( user => alert(user.name ) ); // Pasha Ivan Olga
+
+	
+	
+  </script>
+</body>
+
+</html>
