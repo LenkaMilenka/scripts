@@ -5,17 +5,70 @@
 <body>
   <script type="text/babel">
       'use strict';
-	  let user = {
-	  name: "Vasia",
-	  age: 30,
-	  [Symbol.for("isAdmin")]: true
+	  //Alerts commented
+	  
+	  let range = {
+	  from: 1,
+	  to: 5,
+
+	  [Symbol.iterator]() {
+		return this;
+	  },
+
+	  next() {
+		if (this.current === undefined) {
+		  // initialization state iteration 
+		  this.current = this.from;
+		}
+
+		if (this.current <= this.to) {
+		  return {
+			done: false,
+			value: this.current++
+		  };
+		} else {
+		  // clear current iteration 
+		  delete this.current;
+		  return {
+			done: true
+		  };
+		}
+	  }
+
 	};
 
-	// in cycle for..in wasn't symbol
-	alert( Object.keys(user) ); // name, age
+	for (let num of range) {
+	 // alert(num); // 1, 2, 3, 4, 5
+	}
 
-	// Access to the property through the global symbol -  working
-	alert( user[Symbol.for("isAdmin")] ); //true
+	//It happens call Math.max(1,2,3,4,5);
+	//alert( Math.max(...range) ); // 5 (*)
+	
+	//----------------------------------------------
+	
+	let str = "Hello";
+
+	// Делает то же, что и
+	// for(var letter of str) alert(letter);
+
+	let iterator = str[Symbol.iterator]();
+
+	while(true) {
+	  let result = iterator.next();
+	  if (result.done) break;
+	 // alert(result.value); // Выведет все буквы по очереди
+	}
+	
+	//--------------------------------------------
+	
+	let map = new Map();
+	map.set(1,"IOOO");
+	map.set("1","Exadel");
+	map.set(true, "company");
+	
+	alert(map.size + "!\n" +  map.get(1) + " " + map.get("1") + " " + map.get(true) + "!");
+	
+	
   </script>
 </body>
 
