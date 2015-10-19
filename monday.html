@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<script src="https://js.cx/babel-core/browser.min.js"></script>
+<body>
+  <script type="text/babel">
+		'use strict';
+		// This promise finished with error after 1 second
+		var promise = new Promise((resolve, reject) => {
+
+		  setTimeout(() => {
+			reject(new Error("Time out!"));
+		  }, 1000);
+
+		});
+
+		promise
+		  .then(
+			result => alert("Fulfilled: " + result),
+			error => alert("Rejected: " + error.message) // Rejected: Time out!
+		  );
+		  //----------------------------------------
+		  
+		  function httpGet(url) {
+
+		  return new Promise(function(resolve, reject) {
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', url, true);
+
+			xhr.onload = function() {
+			  if (this.status == 200) {
+				resolve(this.response);
+			  } else {
+				var error = new Error(this.statusText);
+				error.code = this.status;
+				reject(error);
+			  }
+			};
+
+			xhr.onerror = function() {
+			  reject(new Error("Network Error"));
+			};
+
+			xhr.send();
+		  });
+
+		}
+		
+		httpGet("/article/promise/user.json")
+		  .then(
+			response => alert(`Fulfilled: ${response}`),
+			error => alert(`Rejected: ${error}`)
+		  );
+		  
+		  //------------------------------------------------
+		  
+		  
+		  //don't work!!!!
+		  // execute the query
+		httpGet('/article/promise/user.json')
+		  // 1. Get data about user in JSON  and pass on
+		  .then(response => {
+			console.log(response);
+			let user = JSON.parse(response);
+			return user;
+		  })
+		  // 2. Get information from  github
+		  .then(user => {
+			console.log(user);
+			return httpGet(`https://api.github.com/users/LenkaMilenka`);
+		  })
+		  // 3. Show pistute from a 3 seconds (might with animation) 
+		  .then(githubUser => {
+			console.log(githubUser);
+			githubUser = JSON.parse(githubUser);
+
+			let img = new Image();
+			img.src = githubUser.avatar_url;
+			img.className = "promise-avatar-example";
+			document.body.appendChild(img);
+
+			setTimeout(() => img.remove(), 3000); 
+		  });
+		
+	</script>
+</body>
+</html>	
