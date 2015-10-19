@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<script src="https://js.cx/babel-core/browser.min.js"></script>
+<body>
+  <script type="text/babel">
+
+    'use strict';
+    'use strict';
+
+	//not work in browser (in babel, all ok!) 
+	function* generateSequence() {
+      yield 1;
+      yield 2;
+      return 3;
+    }
+    
+    let generator = generateSequence();
+    
+    let one = generator.next();
+    
+    alert(JSON.stringify(one)); // {value: 1, done: false}
+	
+	let two = generator.next();
+
+	alert(JSON.stringify(two)); // {value: 2, done: false}
+	
+	let three = generator.next();
+
+	alert(JSON.stringify(three)); // {value: 3, done: true}
+
+	//-----------------------------------
+	
+	
+	function* generateSequence(start, end) {
+	  for (let i = start; i <= end; i++) yield i;
+	}
+
+	function* generateAlphaNum() {
+
+	  // 0..9
+	  yield* generateSequence(48, 57);
+
+	  // A..Z
+	  yield* generateSequence(65, 90);
+
+	  // a..z
+	  yield* generateSequence(97, 122);
+
+	}
+
+	let str = '';
+
+	for(let code of generateAlphaNum()) {
+	  str += String.fromCharCode(code);
+	}
+
+	alert(str); // 0..9A..Za..z
+  
+  </script>
+ </body>
+ </html>

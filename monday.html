@@ -56,32 +56,7 @@
 		  //------------------------------------------------
 		  
 		  
-		  //don't work!!!! Finish it!
-		  // execute the query
-		httpGet('/article/promise/user.json')
-		  // 1. Get data about user in JSON  and pass on
-		  .then(response => {
-			console.log(response);
-			let user = JSON.parse(response);
-			return user;
-		  })
-		  // 2. Get information from  github with my profil
-		  .then(user => {
-			console.log(user);
-			return httpGet(`https://api.github.com/users/LenkaMilenka`);
-		  })
-		  // 3. Show pistute from a 3 seconds (might with animation) 
-		  .then(githubUser => {
-			console.log(githubUser);
-			githubUser = JSON.parse(githubUser);
 
-			let img = new Image();
-			img.src = githubUser.avatar_url;
-			img.className = "promise-avatar-example";
-			document.body.appendChild(img);
-
-			setTimeout(() => img.remove(), 3000); 
-		  });
 		
 	</script>
 </body>
