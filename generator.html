@@ -8,7 +8,7 @@
     'use strict';
 
 	//not work in browser (in babel, all ok!) 
-	function* generateSequence() {
+	/*function* generateSequence() {
       yield 1;
       yield 2;
       return 3;
@@ -26,7 +26,7 @@
 	
 	let three = generator.next();
 
-	alert(JSON.stringify(three)); // {value: 3, done: true}
+	alert(JSON.stringify(three)); // {value: 3, done: true}*/
 
 	//-----------------------------------
 	
@@ -37,13 +37,13 @@
 
 	function* generateAlphaNum() {
 
-	  // 0..9
+	  // numbers from 0 to 9
 	  yield* generateSequence(48, 57);
 
-	  // A..Z
+	  // letters from A to Z
 	  yield* generateSequence(65, 90);
 
-	  // a..z
+	  // letters feom a to z
 	  yield* generateSequence(97, 122);
 
 	}
@@ -54,7 +54,7 @@
 	  str += String.fromCharCode(code);
 	}
 
-	alert(str); // 0..9A..Za..z
+	alert(str); // numbers from 0 to 9 + letters from A to Z + letters from a to z
   
   </script>
  </body>
