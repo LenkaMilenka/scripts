@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+	<p>...</p>
+	<ul>
+	  <li>1.1</li>
+	</ul>
+
+	<script>
+	  var p = document.body.children[0];
+	  
+	  var ul = document.body.children[1];
+	  
+	  var li = ul.children[0];
+	  
+	  // 1. <ul> находится после <p>
+	  alert( ul.compareDocumentPosition(p) ); // 2 = 10
+
+	  // 2. <p> находится до <ul>
+	  alert( p.compareDocumentPosition(ul) ); // 4 = 100
+
+	  // 3. <ul> родитель <li>
+	  alert( ul.compareDocumentPosition(li) ); // 20 = 10100
+
+	  // 4. <ul> потомок <body>
+	  alert( ul.compareDocumentPosition(document.body) ); // 10 = 1010
+	</script>
+</body>
+</html>

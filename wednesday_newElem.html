@@ -1,0 +1,76 @@
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<style>
+	.alert {
+	  padding: 15px;
+	  border: 1px solid #d6e9c6;
+	  border-radius: 4px;
+	  color: #3c763d;
+	  background-color: #dff0d8;
+	}
+	</style>
+
+	<ol id="list">
+	  <li>0</li>
+	  <li>1</li>
+	  <li>2</li>
+	</ol>
+
+	<script>
+	  var newLi = document.createElement('li');
+	  newLi.innerHTML = 'Привет, мир!';
+
+	    //insert to end
+		list.appendChild(newLi);	  
+		
+		//insert before element
+		list.insertBefore(newLi, list.children[1]);
+		
+		//insert to end (because null)
+		list.insertBefore(newLi, null);
+		
+		  var div = document.createElement('div');
+		  div.className = "alert alert-success";
+		  div.innerHTML = "<strong>Ура!</strong> Вы прочитали это важное сообщение.";
+
+		  document.body.insertBefore(div,document.body.firstChild);
+		  
+		  // create a copy node
+		  var div2 = div.cloneNode(true);
+		  
+		  // a copy can be corrected
+		  div2.querySelector('strong').innerHTML = 'Супер!';
+		  
+		  // insert to end
+		  document.body.appendChild(div2);
+		  
+		  var ol = document.body.children[2];
+		  var first = ol.firstChild;
+		  var last = ol.lastChild;
+		  ol.insertBefore(last, first);
+		  
+		  var deleted = ol.children[2];
+		  
+		  setTimeout(function() {
+				ol.removeChild(deleted);
+		  }, 1000);
+		  
+		  
+		  
+		  setTimeout(function(){
+		  var div2 = document.createElement('div');
+		  div2.className = "alert alert-success";
+		  document.body.appendChild(div2);
+			  var text = prompt("Введите текст для сообщения", "Жили были <a> и <b>!");
+
+			  // вставится именно как текст, без HTML-обработки
+			  div2.appendChild(document.createTextNode(text));
+			  }, 2000);
+				  
+	</script>
+</body>
+</html>

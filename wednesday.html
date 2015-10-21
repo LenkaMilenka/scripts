@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .external {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <a name="list">List:</a>
+  <ul>
+    <li><a href="http://google.com">http://google.com</a></li>
+    <li><a href="/tutorial">/tutorial.html</a></li>
+    <li><a href="local/path">local/path</a></li>
+    <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+    <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+    <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+  </ul>
+
+
+  <script>
+    var links = document.querySelectorAll('a');
+
+	for (var i = 0; i < links.length; i++) {
+
+	  var a = links[i];
+
+	  var href = a.getAttribute('href');
+
+	  if (!href) continue; // havan't attribute
+
+	  if (href.indexOf('://') == -1) continue; // haven't protocol
+
+	  if (href.indexOf('http://internal.com') === 0) continue; // internal
+
+	  a.classList.add('external');
+	}
+  </script>
+
+</body>
+
+</html>
