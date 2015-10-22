@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .hour {
+      color: red
+    }
+
+    .min {
+      color: green
+    }
+
+    .sec {
+      color: blue
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="clock">
+    <span class="hour">hh</span>:<span class="min">mm</span>:<span class="sec">ss</span>
+  </div>
+
+  <script>
+    var timerId;
+
+	//function to update clock 
+    function update() {
+      var clock = document.getElementById('clock');
+      var date = new Date();//get date now
+
+      var hours = date.getHours();//get hours now
+      if (hours < 10) hours = '0' + hours;//for numbers from 0 to 9
+      clock.children[0].innerHTML = hours;
+
+      var minutes = date.getMinutes();//get minutes now
+      if (minutes < 10) minutes = '0' + minutes;//for numbers from 0 to 9
+      clock.children[1].innerHTML = minutes;
+
+      var seconds = date.getSeconds();// get seconds now
+      if (seconds < 10) seconds = '0' + seconds;//from numbers from 0 to 9
+      clock.children[2].innerHTML = seconds;
+    }
+
+    function clockStart() {
+      setInterval(update, 1000);//calls undate every second
+      update(); // <--  start now,  don't wait  1 second until setInterval worked 
+    }
+
+    clockStart();// calls function
+  </script>
+
+</body>
+
+</html>
