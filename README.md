@@ -1,2 +1,2 @@
 # scripts
-It's my scrints! =)
+It's my scripts! =)
