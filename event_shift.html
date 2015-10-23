@@ -16,17 +16,17 @@
 
 <body>
 
-  Клик на элементе выделяет только его.
-  <br> Ctrl(Cmd)+Клик добавляет/убирает элемент из выделенных.
-  <br> Shift+Клик добавляет промежуток от последнего кликнутого к выделению.
+  Click on the element selected only him
+  <br> Ctrl(Cmd)+Click addition/remove element from selected.
+  <br> Shift+Click addition gap from last clicked to selected.
   <br>
 
   <ul>
-    <li>Кристофер Робин</li>
-    <li>Винни-Пух</li>
-    <li>Ослик Иа</li>
-    <li>Мудрая Сова</li>
-    <li>Кролик. Просто кролик.</li>
+    <li>Christopher Robin</li>
+    <li>Winni-Pooh</li>
+    <li>Burro IA</li>
+    <li>Wise Owl</li>
+    <li>Rubbit. Just a Rubbit</li>
   </ul>
 
   <script>
@@ -34,15 +34,15 @@
 
     var lastClickedLi = null;
 
-    // --- обработчики ---
+    // --- handlers ---
 
     ul.onclick = function(event) {
       var target = event.target;
 
-      // возможно, клик был внутри списка UL, но вне элементов LI
+      // perhaps, clicked was in the withis list UL, but out in the elements LI
       if (target.tagName != "LI") return;
 
-      // для Mac проверяем Cmd, т.к. Ctrl + click там контекстное меню
+      // for Mac shecking Cmd, because Ctrl + click it's context menu
       if (event.metaKey || event.ctrlKey) {
         toggleSelect(target);
       } else if (event.shiftKey) {
@@ -58,7 +58,7 @@
       return false;
     };
 
-    // --- функции для выделения ---
+    // --- functions to select ---
 
     function toggleSelect(li) {
       li.classList.toggle('selected');
