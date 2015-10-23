@@ -81,15 +81,14 @@
       elem.classList.add('selected');
     }
 
-
-
-
+	//Delete all select
     function deselectAll() {
       for (var i = 0; i < ul.children.length; i++) {
         ul.children[i].classList.remove('selected');
       }
     }
 
+	//Establish select
     function selectSingle(li) {
       deselectAll();
       li.classList.add('selected');
