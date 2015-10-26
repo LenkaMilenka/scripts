@@ -13,9 +13,11 @@
   </div>
 
   <script>
+  
     var sliderElem = document.getElementById('slider');
     var thumbElem = sliderElem.children[0];
 
+	//Action after mouse down
     thumbElem.onmousedown = function(e) {
       var thumbCoords = getCoords(thumbElem);
       var shiftX = e.pageX - thumbCoords.left;
@@ -23,6 +25,7 @@
 
       var sliderCoords = getCoords(sliderElem);
 
+	  //Action after mouse move
       document.onmousemove = function(e) {
         //  Parent's coordinate calculate, because position: relative
         var newLeft = e.pageX - shiftX - sliderCoords.left;
@@ -50,15 +53,18 @@
       return false;
     };
 
+	//Obgect's coordinate get 
     function getCoords(elem) { // don't work in the IE8-
       var box = elem.getBoundingClientRect();
 
+	  //return coordinate
       return {
         top: box.top + pageYOffset,
         left: box.left + pageXOffset
       };
 
     }
+	
   </script>
 
 </body>
