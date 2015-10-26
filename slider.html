@@ -59,13 +59,14 @@
     function getCoords(elem) { // don't work in the IE8-
       var box = elem.getBoundingClientRect();
 
+	  //alert((box.top + pageYOffset) + " , " + (box.left + pageXOffset));
 	  //return coordinate
       return {
         top: box.top + pageYOffset,
         left: box.left + pageXOffset
       };
 
-    }
+    } 
 	
   </script>
 
