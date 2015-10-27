@@ -9,6 +9,8 @@
 	<input type="text">
 	
 	<script>
+	
+	//function processed key press
 	document.getElementsByTagName('input')[0].onkeypress = function(e){
 		e = e || event;
 		
@@ -22,7 +24,9 @@
 			return false;
 		}
 	}
-		
+	
+		//function get char
+		//@param event - event	
 		function getChar(event){
 			if(event.which == null){
 				if(event.keyCode < 32) return null;
