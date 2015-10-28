@@ -10,20 +10,20 @@
 	
 	<script>
 	
-	//function processed key press
-	document.getElementsByTagName('input')[0].onkeypress = function(e){
-		e = e || event;
-		
-		if(e.ctrlKey || e.altKey || e.metaKey) return;
-		
-		var chr =  getChar(e);
-		
-		if(chr == null) return;
-		
-		if(chr < '0' || chr > '9') {
-			return false;
+		//function processed key press
+		document.getElementsByTagName('input')[0].onkeypress = function(e){
+			e = e || event;
+			
+			if(e.ctrlKey || e.altKey || e.metaKey) return;
+			
+			var chr =  getChar(e);
+			
+			if(chr == null) return;
+			
+			if(chr < '0' || chr > '9') {
+				return false;
+			}
 		}
-	}
 	
 		//function get char
 		//@param event - event	
