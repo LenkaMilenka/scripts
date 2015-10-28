@@ -6,10 +6,15 @@
 
 <body>
 	Input your age:
-	<input type="text">
+	<!--First input - input only numbers-->
+	<input type="text"><br><br><br>
+	
+	<!--Second input with count symbol -->
+	<input type="text" id="sms"> symbols: <span id="result"></span>
 	
 	<script>
 	
+		//---------------------------------Part 1
 		//function processed key press
 		document.getElementsByTagName('input')[0].onkeypress = function(e){
 			e = e || event;
@@ -39,8 +44,19 @@
 			}
 			return null;
 		}
-	
-	
+		
+	//----------------------------------Part 2
+	  function showCount() {
+		result.innerHTML = sms.value.length;
+	  }
+
+	  sms.onkeyup = sms.oninput = showCount;
+	  sms.onpropertychange = function() {
+		if (event.propertyName == "value") showCount();
+	  }
+	  sms.oncut = function() {
+		setTimeout(showCount, 0); // in the moment oncut still old value
+	  };
 	</script>
 	
 	
