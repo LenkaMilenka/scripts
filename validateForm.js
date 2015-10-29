@@ -37,5 +37,4 @@ function showError(container, errorMessage) {
       if (!elems.message.value) {
         showError(elems.message.parentNode, " Text is absent.");
       }
-
     }
